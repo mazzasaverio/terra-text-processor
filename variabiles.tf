@@ -1,7 +1,7 @@
 
 # ------------------------------- GOOGLE CLOUD ------------------------------- #
 
-variable "google_credentials_file" {
+variable "gcp_credentials_file" {
   description = "The path to the Google Cloud credentials file."
   type        = string
 }
@@ -11,12 +11,12 @@ variable "gcp_project_id" {
   type        = string
 }
 
-variable "region" {
+variable "gcp_region" {
   description = "The GCP region."
   type        = string
 }
 
-variable "zone" {
+variable "gcp_zone" {
   description = "The GCP zone."
   type        = string
 }
@@ -26,7 +26,7 @@ variable "gcp_bucket_name" {
   type        = string
 }
 
-variable "service_account_email" {
+variable "gcp_service_account_email" {
   description = "Service account email to invoke the Cloud Run service"
   type        = string
 }
@@ -34,27 +34,60 @@ variable "service_account_email" {
 
 # ------------------------------- MONGODB ATLAS ------------------------------- #
 
-
-variable "mongodb_atlas_public_key" {
+variable "mongo_atlas_public_key" {
   description = "Public key for MongoDB Atlas"
   type        = string
 }
 
-variable "mongodb_atlas_private_key" {
+variable "mongo_atlas_private_key" {
   description = "Private key for MongoDB Atlas"
   type        = string
   sensitive   = true
 }
 
-
-# Atlas Organization ID 
-variable "atlas_org_id" {
+variable "mongo_atlas_org_id" {
   type        = string
   description = "Atlas Organization ID"
 }
 
-# Atlas Project Name
-variable "atlas_project_name" {
+variable "mongo_atlas_project_name" {
   type        = string
   description = "Atlas Project Name"
 }
+
+# ------------------------------- CONFLUENT CLOUD ---------------------------- #
+
+
+
+
+variable "confluent_cloud_api_key" {
+  description = "API Key for Confluent Cloud"
+  type        = string
+}
+
+variable "confluent_cloud_api_secret" {
+  description = "API Secret for Confluent Cloud"
+  type        = string
+}
+
+variable "confluent_environment_name" {
+  description = "The name of the Confluent Cloud environment"
+  type        = string
+}
+
+variable "confluent_cluster_name" {
+  description = "The name of the Confluent Cloud environment"
+  type        = string
+}
+
+variable "confluent_availability" {
+  description = "The name of the Confluent Cloud environment"
+  type        = string
+}
+
+variable "confluent_cloud" {
+  description = "The name of the Confluent Cloud environment"
+  type        = string
+}
+
+

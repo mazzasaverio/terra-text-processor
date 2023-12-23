@@ -29,6 +29,10 @@ Before you begin, assicurati di aver eseguito questi step preliminari:
   - MongoDB Atlas (crea un organizzazione)
     - Crea l'API Key come organization owner (da rivedere in futuro)
 
+### Cocfluent Kafka
+
+Vai sul menu -> Cloud API keys -> crea una nuova api key
+
 ### MongoDB Atlas
 
 To configure your MongoDB Atlas environment, follow these steps:
