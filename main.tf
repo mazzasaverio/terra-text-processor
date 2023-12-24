@@ -46,13 +46,15 @@ module "storage" {
 }
 
 module "mongodb_atlas" {
-  source                   = "./modules/mongodb_atlas"
-  mongo_atlas_org_id       = var.mongo_atlas_org_id
-  mongo_atlas_project_name = var.mongo_atlas_project_name
-  mongo_atlas_db_username  = var.mongo_atlas_db_username
-  mongo_atlas_db_password  = var.mongo_atlas_db_password
-  mongo_atlas_cidr_block   = var.mongo_atlas_cidr_block
-  gcp_project_id           = var.gcp_project_id
+  source                           = "./modules/mongodb_atlas"
+  mongo_atlas_org_id               = var.mongo_atlas_org_id
+  mongo_atlas_project_name         = var.mongo_atlas_project_name
+  mongo_atlas_db_username          = var.mongo_atlas_db_username
+  mongo_atlas_db_password          = var.mongo_atlas_db_password
+  mongo_atlas_cidr_block           = var.mongo_atlas_cidr_block
+  gcp_project_id                   = var.gcp_project_id
+  mongo_atlas_region               = var.mongo_atlas_region
+  mongo_cluster_instance_size_name = var.mongo_cluster_instance_size_name
   # my_ip_cidr_block       = var.my_ip_cidr_block
 }
 
@@ -67,15 +69,24 @@ module "kafka" {
   confluent_availability     = var.confluent_availability
   confluent_cloud            = var.confluent_cloud
   gcp_region                 = var.gcp_region
-  # gcp_project_id = var.gcp_project_id
-  # gcp_network_name           = var.gcp_network_name
-  # atlas_cidr_block           = var.atlas_cidr_block
-  # kafka_server_endpoint      = module.kafka.kafka_bootstrap_servers
-  # confluent_kafka_topic      = var.confluent_kafka_topic
-  # storage_bucket_name        = module.storage.bucket_name
-  # confluent_cloud_api_key    = var.confluent_cloud_api_key
-  # confluent_cloud_api_secret = var.confluent_cloud_api_secret
-  # google_credentials_file    = var.google_credentials_file
+  gcp_project_id             = var.gcp_project_id
+  gcp_network_name           = var.gcp_network_name
+  confluent_kafka_topic      = var.confluent_kafka_topic
+
+
 }
 
 
+
+# module "cloudrun" {
+#   source                    = "./modules/cloudrun"
+#   gcp_region                = var.gcp_region
+#   gcp_text_extraction_image = "gcr.io/${var.gcp_project_id}/text-extraction:latest"
+#   gcp_service_account_email = var.gcp_service_account_email
+#   gcp_project_id            = var.gcp_project_id
+# }
+
+# output "cloud_run_service_url" {
+#   value       = module.cloudrun.service_url
+#   description = "The URL of the Cloud Run service"
+# }

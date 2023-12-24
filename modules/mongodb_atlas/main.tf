@@ -83,52 +83,33 @@ resource "google_compute_network_peering" "peering" {
 
 
 
-# resource "mongodbatlas_network_peering" "peering" {
-#   project_id     = mongodbatlas_project.project.id
-#   container_id   = mongodbatlas_network_container.network_container.container_id
-#   provider_name  = "GCP"
-#   gcp_project_id = var.gcp_project_id
-#   network_name   = "default"
-# }
+resource "mongodbatlas_cluster" "cluster" {
+  project_id = mongodbatlas_project.project.id
+  name       = "Cluster0"
+  num_shards = 1
 
-# # the following assumes a GCP provider is configured
-# data "google_compute_network" "default" {
-#   name = "default"
-# }
+  cluster_type = "REPLICASET"
 
-# resource "google_compute_network_peering" "peering" {
-#   name         = "gc-to-atlas-peering"
-#   network      = data.google_compute_network.default.self_link
-#   peer_network = "https://www.googleapis.com/compute/v1/projects/${mongodbatlas_network_peering.peering.atlas_gcp_project_id}/global/networks/${mongodbatlas_network_peering.peering.atlas_vpc_name}"
-# }
-
-# resource "mongodbatlas_cluster" "cluster" {
-#   project_id = mongodbatlas_project.project.id
-#   name       = "Cluster0"
-#   num_shards = 1
-
-#   cluster_type = "REPLICASET"
-
-#   replication_specs {
-#     num_shards = 1
-#     regions_config {
-#       region_name     = var.atlas_region
-#       electable_nodes = 3
-#       priority        = 7
-#       read_only_nodes = 0
-#     }
-#   }
+  replication_specs {
+    num_shards = 1
+    regions_config {
+      region_name     = var.mongo_atlas_region
+      electable_nodes = 3
+      priority        = 7
+      read_only_nodes = 0
+    }
+  }
 
 
-#   provider_name = "GCP"
+  provider_name = "GCP"
 
-#   provider_instance_size_name = var.cluster_instance_size_name
+  provider_instance_size_name = var.mongo_cluster_instance_size_name
 
-#   lifecycle {
-#     prevent_destroy = false
-#   }
+  lifecycle {
+    prevent_destroy = false
+  }
 
-#   depends_on = [google_compute_network_peering.peering]
+  depends_on = [google_compute_network_peering.peering]
 
-# }
+}
 

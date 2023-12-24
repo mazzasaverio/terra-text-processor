@@ -31,6 +31,11 @@ variable "gcp_service_account_email" {
   type        = string
 }
 
+variable "gcp_network_name" {
+  description = "The name of the VPC network in GCP."
+  type        = string
+}
+
 
 # ------------------------------- MONGODB ATLAS ------------------------------- #
 
@@ -75,6 +80,19 @@ variable "mongo_atlas_cidr_block" {
   type        = string
 }
 
+
+variable "mongo_atlas_region" {
+  description = "Atlas region where resources will be created"
+  type        = string
+}
+
+
+variable "mongo_cluster_instance_size_name" {
+  description = "Cluster instance size name"
+  type        = string
+  default     = "M0" # Free tier size
+}
+
 # variable "my_ip_cidr_block" {
 #   description = "CIDR block for the Terraform machine to allow in the MongoDB Atlas project IP access list"
 #   type        = string
@@ -115,3 +133,7 @@ variable "confluent_cloud" {
 }
 
 
+variable "confluent_kafka_topic" {
+  description = "The name of the Kafka topic"
+  type        = string
+}

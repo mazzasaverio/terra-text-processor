@@ -30,20 +30,22 @@ variable "confluent_cloud" {
   type        = string
 }
 
+variable "confluent_kafka_topic" {
+  description = "The name of the Kafka topic"
+  type        = string
+}
+
 variable "gcp_region" {
   description = "The GCP region."
 }
 
+variable "gcp_project_id" {
+  description = "The GCP project ID."
+}
 
-
-
-# variable "gcp_project_id" {
-#   description = "The GCP project ID."
-# }
-
-# variable "gcp_network_name" {
-#   description = "The name of the VPC network in GCP."
-# }
+variable "gcp_network_name" {
+  description = "The name of the VPC network in GCP."
+}
 
 
 

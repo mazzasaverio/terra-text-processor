@@ -23,16 +23,21 @@ variable "mongo_atlas_cidr_block" {
   type        = string
 }
 
-# variable "atlas_region" {
-#   description = "Atlas region where resources will be created"
-#   type        = string
-# }
+variable "mongo_atlas_region" {
+  description = "Atlas region where resources will be created"
+  type        = string
+}
 
-# variable "cluster_instance_size_name" {
-#   description = "Cluster instance size name"
-#   type        = string
-#   default     = "M0" # Free tier size
-# }
+variable "gcp_project_id" {
+  description = "The GCP project ID."
+  type        = string
+}
+
+variable "mongo_cluster_instance_size_name" {
+  description = "Cluster instance size name"
+  type        = string
+  default     = "M0" # Free tier size
+}
 
 # variable "my_ip_cidr_block" {
 #   description = "CIDR block for the Terraform machine to allow in the MongoDB Atlas project IP access list"
@@ -44,10 +49,7 @@ variable "mongo_atlas_cidr_block" {
 #   type        = string
 # }
 
-variable "gcp_project_id" {
-  description = "The GCP project ID."
-  type        = string
-}
+
 
 # variable "gcp_network_name" {
 #   description = "gcp_network_name"
