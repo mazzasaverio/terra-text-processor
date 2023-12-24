@@ -1,10 +1,25 @@
-variable "atlas_org_id" {
+variable "mongo_atlas_org_id" {
   description = "Atlas Organization ID"
   type        = string
 }
 
-variable "atlas_project_name" {
+variable "mongo_atlas_project_name" {
   description = "Atlas Project Name"
+  type        = string
+}
+
+variable "mongo_atlas_db_username" {
+  type        = string
+  description = "MongoDB Username"
+}
+
+variable "mongo_atlas_db_password" {
+  type        = string
+  description = "MongoDB Password"
+}
+
+variable "mongo_atlas_cidr_block" {
+  description = "CIDR block for the Atlas network container"
   type        = string
 }
 
@@ -29,10 +44,10 @@ variable "atlas_project_name" {
 #   type        = string
 # }
 
-# variable "gcp_project_id" {
-#   description = "The GCP project ID."
-#   type        = string
-# }
+variable "gcp_project_id" {
+  description = "The GCP project ID."
+  type        = string
+}
 
 # variable "gcp_network_name" {
 #   description = "gcp_network_name"
@@ -44,20 +59,9 @@ variable "atlas_project_name" {
 #   type        = string
 # }
 
-# variable "atlas_cidr_block" {
+# variable "mongo_atlas_cidr_block" {
 #   description = "CIDR block for the Atlas network container"
 #   type        = string
 #   // Set a default value that fits your network plan or leave it without and define it in your terraform.tfvars file.
 # }
 
-# # MongoDB Username
-# variable "mongodb_username" {
-#   type        = string
-#   description = "MongoDB Username"
-# }
-
-# # MongoDB Password
-# variable "mongodb_password" {
-#   type        = string
-#   description = "MongoDB Password"
-# }

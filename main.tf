@@ -46,9 +46,14 @@ module "storage" {
 }
 
 module "mongodb_atlas" {
-  source             = "./modules/mongodb_atlas"
-  atlas_org_id       = var.mongo_atlas_org_id
-  atlas_project_name = var.mongo_atlas_project_name
+  source                   = "./modules/mongodb_atlas"
+  mongo_atlas_org_id       = var.mongo_atlas_org_id
+  mongo_atlas_project_name = var.mongo_atlas_project_name
+  mongo_atlas_db_username  = var.mongo_atlas_db_username
+  mongo_atlas_db_password  = var.mongo_atlas_db_password
+  mongo_atlas_cidr_block   = var.mongo_atlas_cidr_block
+  gcp_project_id           = var.gcp_project_id
+  # my_ip_cidr_block       = var.my_ip_cidr_block
 }
 
 

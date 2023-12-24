@@ -34,6 +34,17 @@ variable "gcp_service_account_email" {
 
 # ------------------------------- MONGODB ATLAS ------------------------------- #
 
+variable "mongo_atlas_org_id" {
+  type        = string
+  description = "Atlas Organization ID"
+}
+
+variable "mongo_atlas_project_name" {
+  type        = string
+  description = "Atlas Project Name"
+}
+
+
 variable "mongo_atlas_public_key" {
   description = "Public key for MongoDB Atlas"
   type        = string
@@ -45,16 +56,29 @@ variable "mongo_atlas_private_key" {
   sensitive   = true
 }
 
-variable "mongo_atlas_org_id" {
+
+
+variable "mongo_atlas_db_username" {
+  description = "MongoDB Username"
   type        = string
-  description = "Atlas Organization ID"
 }
 
-variable "mongo_atlas_project_name" {
+variable "mongo_atlas_db_password" {
+  description = "MongoDB Password"
   type        = string
-  description = "Atlas Project Name"
+  sensitive   = true
 }
 
+
+variable "mongo_atlas_cidr_block" {
+  description = "CIDR block for the Atlas network container"
+  type        = string
+}
+
+# variable "my_ip_cidr_block" {
+#   description = "CIDR block for the Terraform machine to allow in the MongoDB Atlas project IP access list"
+#   type        = string
+# }
 # ------------------------------- CONFLUENT CLOUD ---------------------------- #
 
 
